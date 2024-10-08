@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" card-content="width=device-width, initial-scale=1.0">
+    <title>More Info</title>
+</head>
+<style>
+    html {
+        position: relative;
+        margin: 0;
+    }
+
+    body {
+        margin-left: auto;
+        background-color: #DCE2F0;
+        margin: 0;
+        position: relative;
+        overflow-y: auto;
+    }
+
+    .top {
+        overflow: hidden;
+        background-color: #50586C;
+        height: 40px;
+        width: 100%;
+        border-bottom: solid 1px black;
+    }
+
+    .top a {
+        height: 100%;
+        float: left;
+    }
+
+    .top img {
+        padding: 2px;
+        height: 36px;
+        object-fit: contain;
+    }
+
+    h1 {
+        font-size: 60px;
+        color: #50586C;
+        text-align: center;
+    }
+
+    h2 {
+        left: 0;
+    }
+
+    .container {
+        width: 100%;
+        background-color: #50586C;
+    }
+
+    .info {
+        margin-left: 5vh;
+        display: inline-flex;
+        margin-bottom: 3vh;
+    }
+
+    .container img {
+        width: 20%;
+        height: 20%;
+        margin-top: 3vh;
+        border-radius: 10px;
+    }
+
+    .members,
+    .locations,
+    .dates {
+        margin-left: 10vh;
+        color: #DCE2F0;
+    }
+
+    li {
+        font-size: 20px;
+    }
+
+    .index {
+        text-align: center;
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+    }
+
+    .index a {
+        color: #50586C;
+    }
+</style>
+
+<body>
+    <div class="top">
+        <a href="/index"><img src="/templates/images/homepage1.png" alt="homepage"></a>
+    </div>
+    <h1>More Information about {{ .Artist.Name }}</h1>
+    <div class="container">
+        <div class="info">
+            <img src="{{.Artist.Image}}" alt="image">
+            <div class="members">
+                <h2>Members</h2>
+                {{range .Artist.Members }}
+                <li>{{.}}</li>
+                {{end}}
+            </div>
+            <div class="locations">
+                <h2>Concerts Locations</h2>
+                {{range .Location.Locations }}
+                <li>{{.}}</li>
+                {{end}}
+            </div>
+            <div class="dates">
+                <h2>Concerts Dates</h2>
+                {{range .Date.Dates }}
+                <li>{{.}}</li>
+                {{end}}
+            </div>
+        </div>
+    </div>
+    <div class="index">
+        <a href="javascript:window.history.back();" style="font-size: 20px;">Previous Page</a>
+    </div>
+</body>
+
+</html>
